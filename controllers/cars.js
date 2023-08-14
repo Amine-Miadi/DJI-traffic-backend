@@ -5,7 +5,6 @@ const putcar = async (req,res) => {
         {
             recorded_speed: req.body.recorded_speed,
             speed_limit: req.body.speed_limit,
-            time: req.body.time,
             image_Base64: req.body.image
         }
     )
