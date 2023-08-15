@@ -5,5 +5,8 @@ const cars = require('../controllers/cars.js');
 
 router.post('/cars', cars.putcar);
 router.get('/cars', cars.getcar);
+router.get('/', (req,res) => {
+    res.status(201).send("welcome")
+});
 
 module.exports = router;

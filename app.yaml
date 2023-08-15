@@ -1,0 +1,14 @@
+# [START app_yaml]
+runtime: nodejs20
+entrypoint: node ./app.js
+env: standard
+instance_class: F1
+
+env_variables:
+  PORT: 8080
+  MONGO_URI: "mongodb+srv://fullstack:Aezakmi-5800@cluster0.tolrxag.mongodb.net/SpeedingCars?retryWrites=true&w=majority"
+
+handlers:
+- url: /.*
+  secure: always
+  script: auto
