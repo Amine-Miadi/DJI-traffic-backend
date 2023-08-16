@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const cars = require('../controllers/cars.js');
+const uploadHandler = require('../config/multer.js')
 
 
-router.post('/cars', cars.putcar);
+
+router.post('/cars',uploadHandler.single('image'),cars.putcar);
 router.get('/cars', cars.getcar);
 router.get('/', (req,res) => {
     res.status(201).send("welcome")

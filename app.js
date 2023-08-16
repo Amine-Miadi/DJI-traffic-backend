@@ -11,7 +11,6 @@ mongoose.connect(process.env.MONGO_URI)
 
 //middleware
 app.use(cors())
-app.use(bodyParser.json({limit: "20mb"}))
 app.use('/', require('./routes/car_data'));
 
 
