@@ -7,6 +7,8 @@ const {Storage} = require('@google-cloud/storage')
 require('dotenv').config()
 
 mongoose.connect(process.env.MONGO_URI)
+    .then(res => console.log("connected to mongoose"))
+    .catch(err => console.log("error occured"))
 
 
 //middleware
