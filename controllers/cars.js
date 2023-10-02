@@ -2,13 +2,12 @@ const car = require('../config/database')
 
 
 const putcar = async (req,res) => {
-    console.log(req.file)
-    console.log(req.body.speed_limit, req.body.recorded_speed)
     let detectedcar = new car(
         {
             recorded_speed: req.body.recorded_speed,
             speed_limit: req.body.speed_limit,
-            image_Base64: req.file.originalname
+            image_Base64: req.file.originalname,
+            location: {lat : req.body.lat,lng : req.body.lng}
         }
     )
     await detectedcar.save()

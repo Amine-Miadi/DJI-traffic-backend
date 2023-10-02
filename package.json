@@ -4,7 +4,7 @@
   "description": "server for DJI application",
   "main": "app.js",
   "scripts": {
-    "start": "node ./app.js",
+    "start": "npx nodemon ./app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "gcloud preview app deploy"
   },
