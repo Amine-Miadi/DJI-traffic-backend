@@ -1,4 +1,4 @@
-const car = require('../config/database');
+const car = require('../config/models/cars.model');
 const path = require('path');
 const {Storage} = require('@google-cloud/storage');
 const { CLIENT_RENEG_WINDOW } = require('tls');

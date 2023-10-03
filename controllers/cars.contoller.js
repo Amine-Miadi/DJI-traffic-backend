@@ -1,4 +1,4 @@
-const car = require('../config/database')
+const car = require('../config/models/cars.model')
 
 
 const putcar = async (req,res) => {
@@ -7,7 +7,8 @@ const putcar = async (req,res) => {
             recorded_speed: req.body.recorded_speed,
             speed_limit: req.body.speed_limit,
             image_Base64: req.file.originalname,
-            location: {lat : req.body.lat,lng : req.body.lng}
+            date: Date.now(),
+            location: {lat : req.body.lat ,lng : req.body.lng}
         }
     )
     await detectedcar.save()
@@ -19,4 +20,10 @@ const getcar = async (req,res) => {
     res.status(201).json(cars)
 }
 
-module.exports = {putcar,getcar};
+const removeall = async (req,res) => {
+    await car.deleteMany({})
+    let cars = await car.find()
+    res.status(201).json(cars)
+}
+
+module.exports = {putcar,getcar,removeall};

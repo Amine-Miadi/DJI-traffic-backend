@@ -3,10 +3,11 @@ const mongoose = require('mongoose')
 const carSchema = new mongoose.Schema({
     recorded_speed: Number,
     speed_limit: Number,
-    date: { type: Date, default: Date.now },
+    date: Number,
     time: String,
     image_Base64: String,
-    location: {lat: Number, lng: Number}
+    location: {lat: Number, 
+      lng: Number}
 });
 
 carSchema.set('toJSON', {
