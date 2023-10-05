@@ -20,10 +20,10 @@ const getcar = async (req,res) => {
     res.status(201).json(cars)
 }
 
-const removeall = async (req,res) => {
-    await car.deleteMany({})
-    let cars = await car.find()
-    res.status(201).json(cars)
+
+const remove = async (req,res) => {
+    console.log(req.params)
+    res.status(201).send({message: `deleted ${req.params.id}`});
 }
 
-module.exports = {putcar,getcar,removeall};
+module.exports = {putcar,getcar,remove};

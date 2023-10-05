@@ -3,6 +3,7 @@ const cors = require('cors')
 const app = express();
 const mongoose = require('mongoose')
 const Role = require('./config/models/role.model')
+const bodyparser = require('body-parser')
 require('dotenv').config()
 
 mongoose.connect(process.env.MONGO_URI)
@@ -33,8 +34,9 @@ function initial() {
 initial();
 
 //middleware
+app.use(bodyparser.json())
 app.use(cors())
-app.use('/', require('./routes/car_data'));
+app.use('/', require('./routes/car_data.routes'));
 
 
 const PORT = process.env.PORT || 8080;
