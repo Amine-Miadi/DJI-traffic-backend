@@ -36,6 +36,7 @@ initial();
 //middleware
 app.use(bodyparser.json())
 app.use(cors())
+app.use(express.static('dist'))
 app.use('/', require('./routes/car_data.routes'));
 
 
