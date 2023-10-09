@@ -38,6 +38,9 @@ app.use(bodyparser.json())
 app.use(cors())
 app.use(express.static('dist'))
 app.use('/', require('./routes/car_data.routes'));
+app.use(function(req, res) {
+    res.redirect('/')
+});
 
 
 const PORT = process.env.PORT || 8080;
